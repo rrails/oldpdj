@@ -1,11 +1,11 @@
 %div.row
   %div.large-3.columns
     = form_tag '/signup' do
-      = label_tag :email
-      = text_field_tag :email, :autofocus => true
+      = label_tag :name
+      = text_field_tag :name
       = label_tag :password
       = password_field_tag :password
       = label_tag :password_confirmation
       = password_field_tag :password_confirmation
-      = submit_tag nil, :class => 'button radius'
+      = submit_tag 'Sign Up', :class => 'button radius'
   %div.large-9.columns

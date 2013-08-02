@@ -23,25 +23,14 @@ ActiveRecord::Schema.define(:version => 20130802010846) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "restaurants", :force => true do |t|
+  create_table "users", :force => true do |t|
+    t.string   "type"
     t.string   "name"
     t.string   "address"
     t.string   "phone"
     t.string   "email"
-    t.float    "longitude",       :default => 0.0
-    t.float    "latitude",        :default => 0.0
-    t.string   "password_digest"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
     t.string   "image"
     t.string   "city"
-  end
-
-  create_table "users", :force => true do |t|
-    t.string   "name"
-    t.string   "address"
-    t.string   "phone"
-    t.string   "email"
     t.float    "longitude",       :default => 0.0
     t.float    "latitude",        :default => 0.0
     t.string   "password_digest"

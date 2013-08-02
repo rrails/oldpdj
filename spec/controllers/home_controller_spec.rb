@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe HomeController do
-  describe 'Landing Page' do
+  describe 'Home Page' do
     before do
       get :index
     end
@@ -14,8 +14,6 @@ describe HomeController do
     it "should render the sign up template" do
       render_template(:partial => "signup")
       expect(response).to render_template("index")
-
-      # rendered.should contain("Email")
     end
   end
 end
