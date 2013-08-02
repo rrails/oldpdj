@@ -1,12 +1,17 @@
 require 'spec_helper'
 
+
+
 describe RestaurantController do
   # describe 'Landing Page' do
-  #   root
-  # end
-  # describe 'Sign Up' do
   #   before do
-  #     root :index
+  #     get :index
+  #   end
+
+  #   it 'should respond with a status 200' do
+  #     expect(response).to be_success
+  #     expect(response.status).to eq(200)
   #   end
   # end
 end
+
