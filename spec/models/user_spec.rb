@@ -18,20 +18,21 @@
 #
 
 require 'spec_helper'
-# describe Restaurant do
-#   before do
-#       @restaurant = Restaurant.new
-#   end
 
-#     it "has invalid name" do
-#       @restaurant.valid?.should be_false
-#     end
+describe User do
+  before do
+      @user = User.new
+  end
 
-#     it "has a valid name" do
-#       @restaurant.name = "Lego"
-#       @restaurant.address = "108 Harris Street"
-#       @restaurant.phone = "043499123"
-#       @restaurant.email = "Lego@gmail.com"
-#       @restaurant.valid?.should be_true
-#     end
-# end
+    # it "has invalid name" do
+    #   @user.valid?.should be_false
+    # end
+
+    # it "has a valid name" do
+    #   @user.name = "Lego"
+    #   # @user.address = "108 Harris Street"
+    #   # @user.phone = "043499123"
+    #   # @user.email = "Lego@gmail.com"
+    #   @user.valid?.should be_true
+    # end
+end

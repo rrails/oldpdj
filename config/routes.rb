@@ -1,6 +1,5 @@
 Pdj::Application.routes.draw do
   root :to => 'home#index'
+  resources :users, :only => [:create]
 
-  post '/signup'  => 'restaurant#new'
-  # post '/signin' => 'session#create'
 end

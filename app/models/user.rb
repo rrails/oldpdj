@@ -17,21 +17,9 @@
 #  updated_at      :datetime         not null
 #
 
-require 'spec_helper'
-# describe Restaurant do
-#   before do
-#       @restaurant = Restaurant.new
-#   end
-
-#     it "has invalid name" do
-#       @restaurant.valid?.should be_false
-#     end
-
-#     it "has a valid name" do
-#       @restaurant.name = "Lego"
-#       @restaurant.address = "108 Harris Street"
-#       @restaurant.phone = "043499123"
-#       @restaurant.email = "Lego@gmail.com"
-#       @restaurant.valid?.should be_true
-#     end
-# end
+class User < ActiveRecord::Base
+  has_secure_password
+  attr_accessible :name, :address, :phone, :email, :image, :city, :password, :password_confirmation
+  # validates :name, :email, :address, :phone, :presence => true
+  validates :name, :presence => true
+end
