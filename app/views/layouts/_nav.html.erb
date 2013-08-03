@@ -1,0 +1,20 @@
+<div class ="row">
+  <div class="large-12 columns">
+    <div class="nav-bar right">
+      <ul class="button-group">
+        <li><%= link_to('Home', root_path, :class => 'button') %></li>
+        <li><%= link_to('Users', users_path, :class => 'button') %></li>
+        <% if @current_user.present? %>
+          <li><%= link_to('Restaurant', restaurants_path, :class => 'button') %></li>
+        <% end %>
+        <% if @current_user.present? %>
+          <% det = @current_user.name %>
+          <li class= 'button alert'><%= link_to(det, signin_path, :method => :delete ) %></li>
+        <% else %>
+          <li><%= link_to('Signin', signin_path, :class => 'button success') %></li>
+        <% end %>
+      </ul>
+    </div>
+    <h2>PDJ</h2>
+  </div>
+</div>
