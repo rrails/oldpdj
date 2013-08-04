@@ -11,16 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130802010846) do
+ActiveRecord::Schema.define(:version => 20130804013425) do
 
-  create_table "pdjs", :force => true do |t|
+  create_table "plats", :force => true do |t|
     t.string   "description"
     t.integer  "price"
     t.datetime "date"
     t.string   "email"
     t.boolean  "ready"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "restaurant_id"
   end
 
   create_table "users", :force => true do |t|

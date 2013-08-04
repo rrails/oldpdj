@@ -18,4 +18,5 @@
 #
 
 class Restaurant < User
+  has_many :plats
 end

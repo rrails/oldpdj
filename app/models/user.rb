@@ -19,7 +19,19 @@
 
 class User < ActiveRecord::Base
   has_secure_password
+  before_save :geocode ##before we do anything runs the geocode
+
   attr_accessible :name, :address, :phone, :email, :image, :city, :password, :password_confirmation
   # validates :name, :email, :address, :phone, :presence => true
   validates :name, :presence => true
+
+  private
+  def geocode
+    result = Geocoder.search(self.address).first
+
+    if result.present?
+        self.latitude = result.latitude #set latitude and longitude to our model before we save, whenever they enter an address
+        self.longitude = result.longitude
+      end
+    end
 end
