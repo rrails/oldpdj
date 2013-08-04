@@ -8,8 +8,7 @@
           <li><%= link_to('Restaurant', restaurants_path, :class => 'button') %></li>
         <% end %>
         <% if @current_user.present? %>
-          <% det = @current_user.name %>
-          <li class= 'button alert'><%= link_to(det, signin_path, :method => :delete ) %></li>
+          <li><%= link_to(@current_user.name, signin_path, :method => :delete, :class => 'button alert') %></li>
         <% else %>
           <li><%= link_to('Signin', signin_path, :class => 'button success') %></li>
         <% end %>
