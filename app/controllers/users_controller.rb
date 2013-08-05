@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def profile
-    binding.pry
+    # binding.pry
   end
 
   def create

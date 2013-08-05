@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130804013425) do
+ActiveRecord::Schema.define(:version => 20130804114152) do
 
   create_table "plats", :force => true do |t|
     t.string   "description"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(:version => 20130804013425) do
     t.string   "password_digest"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
+    t.string   "icon"
+    t.string   "cuisine"
   end
 
 end

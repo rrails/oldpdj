@@ -1,5 +1,6 @@
 var map;
 var canvas;
+var timeoutID;
 
 var display_map = function (lat, long, zoom) {
 
@@ -17,13 +18,23 @@ var display_map = function (lat, long, zoom) {
   map = new google.maps.Map(canvas, mapOptions);
 };
 
-  var add_marker = function (lat, long, title) {
+  var add_marker = function (lat, long, title, icon) {
   var latlng = new google.maps.LatLng(lat, long);
-  var marker = new google.maps.Marker({position: latlng, map: map, title: title});
+  var options = {
+    position: latlng,
+    map: map,
+    title: title
+  };
+  if (icon) {
+    options.icon = icon;
+  }
+  var marker = new google.maps.Marker(options);
 };
+
 
 $(document).ready(function () {
   display_map(-33.89336, 151.217167, 13);
 });
 
+// var markerGroups = { "thai": [], "fine dining": []};
 

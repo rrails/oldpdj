@@ -7,15 +7,21 @@
     %ul
       %script
         = "$(document).ready(function () {"
-        = "add_marker(#{restaurant.latitude}, #{restaurant.longitude}, '#{restaurant.name}');"
+        = "add_marker(#{restaurant.latitude}, #{restaurant.longitude}, '#{restaurant.name}', '#{restaurant.icon}');"
         = "});"
-      %name= restaurant.name
-      %name= restaurant.plats
-
-/ -@plats.each do |plat|
-/   %plat= plat.description
+      %div#icon= image_tag(restaurant.icon)
+      %div#resto= restaurant.name
+      %div#cuisine= check_box_tag(restaurant.cuisine, '', checked = false, :class => 'show_cuisine')
 
 
 
+      / %plats= restaurant.plats
+
+      -restaurant.plats.each do |plat|
+        %des= plat.description
+        %div#price= plat.price
+
+%div#timer
+%li= button_tag 'delayed_Alert',  :class =>  'button radius success tiny delayed_Alert'
 
 %div#map_canvas
