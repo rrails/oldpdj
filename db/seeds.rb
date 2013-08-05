@@ -23,9 +23,9 @@ Sydney NSW', :phone => '(02) 8078 1900', :email => 'rockpool@gmail.com', :passwo
 r3 = Restaurant.create(:name => 'Thai hut', :address => '800 Harris St Sydney', :phone => '0422232', :email => 'thai@gmail.com', :password => 'a', :city => 'Sydney', :password_confirmation => 'a', :icon => 'http://icons.iconarchive.com/icons/3xhumed/mega-games-pack-35/32/Restaurant-Empire-2-1-icon.png', :cuisine_id => thai.id)
 
 
-p1 = Plat.create(:description => '2 Piri Piri Burgers with fries', :price => '20', :release => '2012-08-04', :email => 'rockpool@gmail.com', :ready => true )
+p1 = Plat.create(:description => '2 Piri Piri Burgers with fries', :price => '20', :release => '2013-08-04', :email => 'rockpool@gmail.com', :ready => true )
 
-p2 = Plat.create(:description => 'All you can eat Sushi', :price => '25', :release => '2013-08-01', :email => 'rockpool@gmail.com', :ready => true )
+p2 = Plat.create(:description => 'All you can eat Sushi', :price => '25', :release => '2013-08-03', :email => 'rockpool@gmail.com', :ready => true )
 
 r1.plats << p1
 r2.plats << p2
