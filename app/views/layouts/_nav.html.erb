@@ -2,15 +2,20 @@
   <div class="large-12 columns">
     <div class="nav-bar right">
       <ul class="button-group">
-        <li><%= link_to('Home', root_path, :class => 'button') %></li>
-        <li><%= link_to('User Profile', root_path, :class => 'button') %></li>
         <% if @current_user.present? %>
+          <li><%= link_to('Home', restaurants_path, :class => 'button') %></li>
+          <% end %>
+        <% if @current_user.present? %>
+          <% if @current_user.type  %>
+            <li><%= link_to('Restaurant Profile', edit_restaurant_path(@current_user), :class => 'button') %></li>
+             <li><%= link_to('Plats', new_plat_path, :class => 'button') %></li>
+          <% else %>
+            <li><%= link_to('User Profile', edit_user_path(@current_user), :class => 'button') %></li>
+          <% end %>
           <li><%= link_to('Restaurant', restaurants_path, :class => 'button') %></li>
         <% end %>
         <% if @current_user.present? %>
           <li><%= link_to(@current_user.name, signin_path, :method => :delete, :class => 'button alert') %></li>
-        <% else %>
-          <li><%= link_to('Signin', signin_path, :class => 'button success') %></li>
         <% end %>
       </ul>
     </div>

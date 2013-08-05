@@ -1,11 +1,9 @@
 $(document).ready(function() {
 
 var display_profile = function(response){
-  debugger;
   window.location = response.url;
 
   }
-
 
 var process_signup = function () {
     var name = $('#user_name').val();
@@ -14,8 +12,7 @@ var process_signup = function () {
     var user_id = $('#user_id').val();
     var token = $('input[name="authenticity_token"]').val();
     var url =  '/users';
-    console.log($('#is_restaurant').is(':checked'));
-    if ($('#is_restaurant').is(':checked')) {
+    if ($('#is_restaurant').is(checked)) {
       url = '/restaurants'
     }
     $.ajax({
@@ -29,7 +26,7 @@ var process_signup = function () {
         'user[password]': password,
         'user[password_confirmation]': password_confirmation
       }
-    }).done(display_profile).error(function (message) {
+    }).done(display_profile).error(function (message) {console.log(message);
     });
     return false;
   }

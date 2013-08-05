@@ -15,14 +15,13 @@ class RestaurantsController < ApplicationController
   end
 
   def create
-    @restaurant = Restaurant.create(params[:restaurant])
+    @restaurant = Restaurant.create(params[:user])
     @current_user = @restaurant
-    session[:user_id] = @restaurant.id
+    session[:user_id] = @current_user.id
 
     respond_to do |format|
       format.html {redirect_to(edit_user_path(@restaurant))}
-    binding.pry
-      format.json {render :json => {url: (edit_user_path(@restaurant))}}
+      format.json {render :json => {url: (edit_restaurant_path(@restaurant))}}
 
       # format.json {render :json => (edit_user_path(@restaurant))}
     end

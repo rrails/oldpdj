@@ -1,0 +1,10 @@
+%div.columns.large-3.signin
+  = form_for @plat do |f|
+    = f.label :description
+    = f.text_field :description
+    = f.label :price
+    = f.text_field :price
+    = f.label :date
+    = f.text_field :date
+    = f.submit 'Plat', :class => 'button radius'
+%div.columns.large-9
