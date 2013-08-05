@@ -1,7 +1,8 @@
 Pdj::Application.routes.draw do
   root :to => 'home#index'
-  resources :restaurants, :only => [:update, :create, :index]
+  resources :restaurants, :only => [:update, :create, :index, :edit]
   resources :users
+  resources :plats, :only => [:edit, :new,:create]
 
   get '/signin' => 'session#new'
   post '/signin' => 'session#create'

@@ -1,6 +1,6 @@
 %div.row
   %div#userprofile
-    %div.large-3.columns.signup
+    %div.large-3.columns
       = form_for @current_user do |f|
         = f.label :name
         = f.text_field :name
@@ -12,5 +12,11 @@
         = f.text_field :email
         = f.label :phone
         = f.text_field :phone
-        = f.submit "Update User", :class => 'button radius'
+        = f.label :image
+        = f.text_field :image
+        = f.label :icon
+        = f.text_field :icon
+        = f.label :cuisine
+        = f.text_field :cuisine
+        = f.submit "Update Plats", :class => 'button radius'
 %div.large-9.columns

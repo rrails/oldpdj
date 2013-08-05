@@ -1,7 +1,5 @@
 %div.row
-  %div.row
-    %input{:type=>"checkbox", :id=>"is_restaurant", :checked=>true} &nbsp; Restaurant?
-  %div.large-3.columns.signup
+  %div.large-5.columns.signup
     = form_for @user do |f|
       = f.label :name
       = f.text_field :name, :autofocus => true
