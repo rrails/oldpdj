@@ -1,5 +1,7 @@
 %div.row
-  %div.large-3.columns
+  %div.row
+    %input{:type=>"checkbox", :id=>"is_restaurant", :checked=>true} &nbsp; Restaurant?
+  %div.large-3.columns.signup
     = form_for @user do |f|
       = f.label :name
       = f.text_field :name, :autofocus => true
@@ -7,5 +9,5 @@
       = f.password_field :password
       = f.label :password_confirmation
       = f.password_field :password_confirmation
-      = f.submit "Sign Up", :class => 'button radius'
+      = f.submit "Sign Up", :class => 'sign_up button radius'
   %div.large-9.columns

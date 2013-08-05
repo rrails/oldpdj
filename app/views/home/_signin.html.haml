@@ -1,5 +1,7 @@
 %div.row
-  %div.columns.large-3
+  %div.row
+    %input{:type=>"checkbox", :id=>"is_restaurant", :checked=>true} &nbsp; Restaurant?
+  %div.columns.large-3.signin
     = form_tag '/signin' do
       = label_tag :name
       = text_field_tag :name, nil, :autofocus => true
