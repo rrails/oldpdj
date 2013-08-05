@@ -2,6 +2,23 @@ class RestaurantsController < ApplicationController
   # before_filter :ensure_logged_in #calls from application controller code to ensure you redirect home when not logged in (instead of an error)
   def index
     @restaurants = Restaurant.all
+
+    @restaurantcuisine = @restaurants.uniq{|x| x.cuisine_id}
+    @plats = Plat.where('release>? && release<?', Time.zone.local(
+        Time.zone.now.year,
+        Time.zone.now.month,
+        Time.zone.now.day - 2,
+        11,
+        0,
+        0),
+
+      Time.zone.local(
+        Time.zone.now.year,
+        Time.zone.now.month,
+        Time.zone.now.day,
+        11,
+        0,
+        0))
   end
 
   def edit

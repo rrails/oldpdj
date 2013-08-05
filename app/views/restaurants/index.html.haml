@@ -2,6 +2,14 @@
   %h1
     Les Plat Du Jours Aujourd'hui
 
+%div#h2
+  %h2
+    Choisi par cuisine
+-@restaurantcuisine.each do |restaurant|
+  %div#menu= check_box_tag(restaurant.cuisine.name, '', checked = false, :class => 'show_cuisine')
+  =restaurant.cuisine.name
+
+
 -@restaurants.each do |restaurant|
   %li
     %ul
@@ -11,17 +19,20 @@
         = "});"
       %div#icon= image_tag(restaurant.icon)
       %div#resto= restaurant.name
-      %div#cuisine= check_box_tag(restaurant.cuisine, '', checked = false, :class => 'show_cuisine')
+      %div#cuisine= restaurant.cuisine.name
+      / %div#cuisine= check_box_tag(restaurant.cuisine, '', checked = false, :class => 'show_cuisine')
 
 
 
-      / %plats= restaurant.plats
+
+
 
       -restaurant.plats.each do |plat|
         %des= plat.description
         %div#price= plat.price
 
-%div#timer
-%li= button_tag 'delayed_Alert',  :class =>  'button radius success tiny delayed_Alert'
+
+/ -@plats.each do |plat|
+/   %div#plat= plat.description
 
 %div#map_canvas
