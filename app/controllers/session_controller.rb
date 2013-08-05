@@ -9,7 +9,7 @@ class SessionController < ApplicationController
       session[:user_id] = user.id
       redirect_to(restaurants_path)
     else
-      redirect_to(signin_path)
+      redirect_to(root_path)
     end
   end
 
