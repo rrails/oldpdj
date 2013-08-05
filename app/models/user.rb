@@ -16,14 +16,14 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  icon            :string(255)
-#  cuisine         :string(255)
+#  cuisine_id      :integer
 #
 
 class User < ActiveRecord::Base
   has_secure_password
   before_save :geocode ##before we do anything runs the geocode
 
-  attr_accessible :name, :address, :phone, :email, :image, :city, :password, :password_confirmation, :icon, :cuisine
+  attr_accessible :name, :address, :phone, :email, :image, :city, :password, :password_confirmation, :icon, :cuisine_id
   # validates :name, :email, :address, :phone, :presence => true
   validates :name, :presence => true
 

@@ -16,9 +16,10 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  icon            :string(255)
-#  cuisine         :string(255)
+#  cuisine_id      :integer
 #
 
 class Restaurant < User
   has_many :plats
+  belongs_to :cuisine
 end

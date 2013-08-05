@@ -1,6 +1,5 @@
 var map;
 var canvas;
-var timeoutID;
 
 var display_map = function (lat, long, zoom) {
 

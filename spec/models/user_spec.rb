@@ -16,7 +16,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  icon            :string(255)
-#  cuisine         :string(255)
+#  cuisine_id      :integer
 #
 
 require 'spec_helper'
