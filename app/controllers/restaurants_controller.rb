@@ -21,7 +21,10 @@ class RestaurantsController < ApplicationController
 
     respond_to do |format|
       format.html {redirect_to(edit_user_path(@restaurant))}
-      format.json {render :json => (edit_user_path(@restaurant))}
+    binding.pry
+      format.json {render :json => {url: (edit_user_path(@restaurant))}}
+
+      # format.json {render :json => (edit_user_path(@restaurant))}
     end
   end
 end
