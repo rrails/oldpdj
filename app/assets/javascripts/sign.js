@@ -1,7 +1,9 @@
 $(document).ready(function() {
 
 var display_profile = function(response){
+  debugger;
   window.location = response.url;
+
   }
 
 
@@ -13,9 +15,9 @@ var process_signup = function () {
     var token = $('input[name="authenticity_token"]').val();
     var url =  '/users';
     console.log($('#is_restaurant').is(':checked'));
-    // if ($('#is_restaurant').is(':checked')) {
-    //   url = '/restaurants'
-    // }
+    if ($('#is_restaurant').is(':checked')) {
+      url = '/restaurants'
+    }
     $.ajax({
         dataType: 'json',
         type: 'POST',
