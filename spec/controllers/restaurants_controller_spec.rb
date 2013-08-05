@@ -1,8 +1,6 @@
 require 'spec_helper'
 
-
-
-describe RestaurantController do
+describe RestaurantsController do
   # describe 'Landing Page' do
   #   before do
   #     get :index
