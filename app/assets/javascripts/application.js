@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require 'underscore'
+//= require 'moment.min'
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

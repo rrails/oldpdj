@@ -7,7 +7,11 @@ class SessionController < ApplicationController
     user = User.where(:name => params[:name]).first
     if user.present? && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to(restaurants_path)
+      if (user.type == 'Restaurant')
+        redirect_to(plats_path)
+      else
+        redirect_to(restaurants_path)
+      end
     else
       redirect_to(root_path)
     end

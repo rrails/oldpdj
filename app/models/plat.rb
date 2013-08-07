@@ -15,6 +15,6 @@
 #
 
 class Plat < ActiveRecord::Base
-  attr_accessible :description, :price, :date, :email, :ready, :release
+  attr_accessible :description, :price, :date, :email, :ready, :release,:image
   belongs_to :restaurant
 end

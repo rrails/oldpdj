@@ -1,3 +1,4 @@
+%div.row
 %div.columns.large-3.signin
   = form_for @plat do |f|
     = f.label :description
@@ -7,6 +8,6 @@
     = f.label :image
     = f.text_field :image
     = f.label :release
-    = f.date_select :release, :default => Date.today, :type => 'date'
-    = f.submit 'Plat', :class => 'button radius'
+    = f.date_select :release, :type => 'date'
+    = f.submit "Update Plats", :class => 'button radius'
 %div.columns.large-9
