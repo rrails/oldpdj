@@ -1,5 +1,6 @@
 var map;
 var canvas;
+var markers = [];
 
 var display_map = function (lat, long, zoom) {
 
@@ -17,17 +18,21 @@ var display_map = function (lat, long, zoom) {
   map = new google.maps.Map(canvas, mapOptions);
 };
 
-  var add_marker = function (lat, long, title, icon) {
+  var add_marker = function (lat, long, title, icon, cuisine) { //taking data from ruby in resto views
   var latlng = new google.maps.LatLng(lat, long);
-  var options = {
+  var options = { //an object to store the data
     position: latlng,
     map: map,
-    title: title
+    title: title,
+    cuisine: cuisine
   };
   if (icon) {
     options.icon = icon;
   }
-  var marker = new google.maps.Marker(options);
+  var marker = new google.maps.Marker(options); //options passes the values into marker here
+  marker.setVisible(true);
+  markers.push(marker);
+
 };
 
 
@@ -35,5 +40,5 @@ $(document).ready(function () {
   display_map(-33.89336, 151.217167, 13);
 });
 
-// var markerGroups = { "thai": [], "fine dining": []};
+
 

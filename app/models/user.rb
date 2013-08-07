@@ -25,7 +25,7 @@
 
 class User < ActiveRecord::Base
   has_secure_password
-  # before_save :geocode ##before we do anything runs the geocode
+  before_save :geocode ##before we do anything runs the geocode
 
   attr_accessible :name, :address, :phone, :email, :image, :city, :password, :password_confirmation, :icon, :cuisine_id,:avatar
   # validates :name, :email, :address, :phone, :presence => true

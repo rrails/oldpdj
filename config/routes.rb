@@ -4,6 +4,8 @@ Pdj::Application.routes.draw do
   resources :users
   resources :plats, :only => [:edit, :new,:create,:update, :index, :destroy]
 
+  post '/search/' => 'restaurants#search'
+
   get '/signin' => 'session#new'
   post '/signin' => 'session#create'
   delete '/signin' => 'session#destroy'

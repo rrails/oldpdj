@@ -28,3 +28,10 @@ class Restaurant < User
   belongs_to :cuisine
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 end
+
+def Restaurant.with_cuisine
+  Restaurant.where('cuisine_id IS NOT null')
+end
+
+
+# delegate :cuisine_id, :to => :restaurant, prefix => true, :allow_nil => true
