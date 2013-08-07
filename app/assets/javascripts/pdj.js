@@ -18,7 +18,13 @@ var display_map = function (lat, long, zoom) {
   map = new google.maps.Map(canvas, mapOptions);
 };
 
-  var add_marker = function (lat, long, title, icon, cuisine) { //taking data from ruby in resto views
+  var center_map = function (lat,long,zoom){
+    var latlong = new google.maps.LatLng(lat, long);
+    map.setCenter(latlong);
+  }
+
+
+  var add_marker = function (lat, long, title, icon, cuisine) { //function is called via a script inside the restaurants controller inside of a each loop on plats available that day
   var latlng = new google.maps.LatLng(lat, long);
   var options = { //an object to store the data
     position: latlng,
@@ -31,7 +37,7 @@ var display_map = function (lat, long, zoom) {
   }
   var marker = new google.maps.Marker(options); //options passes the values into marker here
   marker.setVisible(true);
-  markers.push(marker);
+  markers.push(marker); //push each marker into the global markers array
 
 };
 

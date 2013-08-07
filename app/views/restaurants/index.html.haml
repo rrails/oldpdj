@@ -21,9 +21,9 @@
 %div#h2
   %h2
     Choisi par cuisine
--@platscuisine.each do |plat|
-  %div#menu= check_box_tag(plat.restaurant.cuisine.name, '', checked = true, :class => 'show_cuisine')
-  =plat.restaurant.cuisine.name
+-@platscuisine.each do |name|
+  %div#menu= check_box_tag(name, '', checked = true, :class => 'show_cuisine')
+  =name
 / -@plats.each do |plat|
 /   %div#plat= plat.description
 

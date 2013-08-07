@@ -3,8 +3,9 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
 
-    @plats = Plat.where('release > ? AND release < ?' , 1.day.ago.change(:hour => 11), Time.now.change(:hour => 11))
-    @platscuisine = @plats.uniq{|x| x.restaurant_id}
+    @plats = Plat.where('release > ? AND release < ?' , 2.day.ago.change(:hour => 11), Time.now.change(:hour => 11))
+    @platscuisine = @plats.map{ |x| x.restaurant.cuisine.name }.uniq
+    #binding.pry
 
   end
 
@@ -15,12 +16,12 @@ class RestaurantsController < ApplicationController
   def update
     restaurant = Restaurant.find(params[:id])
     restaurant.update_attributes(params[:restaurant])
-    redirect_to(restaurants_path)
+    redirect_to(plats_path)
   end
 
   def search
     result = Geocoder.search(params[:location]).first
-    @lat = result.latitude
+    @lat = result.latitude #created a lat and long variable to pass back to the browser
     @long = result.longitude
 
     respond_to do |format|
@@ -39,8 +40,8 @@ class RestaurantsController < ApplicationController
     session[:user_id] = @current_user.id
 
     respond_to do |format|
-      format.html {redirect_to(plats_path)}
-      format.json {render :json => {url: (plats_path)}}
+      format.html {redirect_to(edit_restaurant_path(@restaurant))}
+      format.json {render :json => {url: (edit_restaurant_path(@restaurant))}}
       # format.html {redirect_to(edit_user_path(@restaurant))}
       # format.json {render :json => {url: (edit_restaurant_path(@restaurant))}}
     end

@@ -9,4 +9,5 @@ Pdj::Application.routes.draw do
   get '/signin' => 'session#new'
   post '/signin' => 'session#create'
   delete '/signin' => 'session#destroy'
+
 end
