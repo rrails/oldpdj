@@ -20,6 +20,10 @@ class RestaurantsController < ApplicationController
 
   def update
     restaurant = Restaurant.find(params[:id])
+    binding.pry
+    if (params[:img_delete])
+      restaurant.avatar = nil
+    end
     restaurant.update_attributes(params[:restaurant])
     redirect_to(restaurants_path)
   end
@@ -36,6 +40,7 @@ class RestaurantsController < ApplicationController
       # format.json {render :json => {url: (edit_restaurant_path(@restaurant))}}
     end
   end
+
   def destroy
     restaurant = Restaurant.find(params[:id])
     restaurant.destroy

@@ -15,12 +15,12 @@ var toggle_form = function(){
   }
 
 var display_plat = function (plat) {
-
+console.log(plat);
     var $ul = $('<ul/>').addClass('no-bullet');
     var $li0 = $('<li/>').attr('id', 'plat_' + plat.id);
     var $li1 = $('<li/>').addClass('description').text(plat.description);
     var $li2 = $('<li/>').addClass('release');
-    var $li3 = $('<li/>').addClass('price');
+    var $li3 = $('<li/>').addClass('price').text(plat.price);
     var $li4 = $('<li/>').addClass('image').text(plat.image);
     var $li5 = $('<li/>').addClass('restaurant_id invisible').text(plat.restaurant_id);
     var $li6 = $('<li/>').addClass('plat_id invisible').text(plat.id);
@@ -29,9 +29,9 @@ var display_plat = function (plat) {
     if (plat.release != null) {
       $li2.text(moment(plat.release).format('LL'));
     }
-    if (plat.price != null) {
-      $li3.text(plat.price);
-    }
+    // if (plat.price != null) {
+    //   $li3.text(plat.price);
+    // }
     $ul.append([$li1, $li2, $li3, $li4,$li5,$li6,$li7,$li8]);
     $li0.append($ul);
     $('#plats').append($li0);

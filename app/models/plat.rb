@@ -2,19 +2,25 @@
 #
 # Table name: plats
 #
-#  id            :integer          not null, primary key
-#  description   :string(255)
-#  price         :integer
-#  email         :string(255)
-#  ready         :boolean
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  restaurant_id :integer
-#  release       :datetime
-#  image         :string(255)
+#  id                  :integer          not null, primary key
+#  description         :string(255)
+#  price               :integer
+#  email               :string(255)
+#  ready               :boolean
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  restaurant_id       :integer
+#  release             :datetime
+#  image               :string(255)
+#  avatar_file_name    :string(255)
+#  avatar_content_type :string(255)
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
 #
 
 class Plat < ActiveRecord::Base
-  attr_accessible :description, :price, :date, :email, :ready, :release,:image
+  attr_accessible :description, :price, :date, :email, :ready, :release,:image, :restaurant_id
   belongs_to :restaurant
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+
 end
