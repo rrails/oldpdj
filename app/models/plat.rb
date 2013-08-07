@@ -19,9 +19,9 @@
 #
 
 class Plat < ActiveRecord::Base
-  attr_accessible :description, :price, :date, :email, :ready, :release,:image, :restaurant_id
+  attr_accessible :description, :price, :date, :email, :ready, :release,:image, :restaurant_id,:avatar
   belongs_to :restaurant
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-  validates :release, :presence => true, :on => :update
+  validates :release, :presence => true
 
 end

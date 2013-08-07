@@ -1,44 +1,16 @@
-%script
-  var plats = [];
 %div
-  %ol#plats.no-bullet
-    - @plats.each do |plat|
-      %li{:id => "plat_#{plat.id}"}
-        %ul.no-bullet
-          %script
-            ="plats.push({id: #{plat.id},description: '#{plat.description}', release: '#{plat.release}', price: #{plat.price || 0} , image: '#{plat.image}',restaurant:{restaurant_id: '#{plat.restaurant_id}'}});"
-          %li.no-bullet.description= plat.description
-          %li.price= plat.price
-          %li.image= plat.image
-          - if plat.release?
-            %li.release= plat.release.strftime('%d-%b-%y')
-          %li.restaurant_id.invisible= plat.restaurant_id
-          %li.plat_id.invisible= plat.id
-          %li
-            = button_tag 'Edit Plat', :class => 'edit_plat button radius tiny'
-            = button_tag 'Delete Plat', :class => 'delete_plat button radius success tiny alert'
-          %hr
-
-%div.row
-  %div.small-3.columns
-    %div.controls
-      %div.new
-        = button_tag 'New Plat', :id => 'new_plat', :class => 'button radius success tiny'
-      %div.platform.invisible
-        = form_tag do
-          = label_tag 'description'
-          = text_field_tag 'description'
-          = label_tag 'release'
-          = text_field_tag 'release', nil, :type => 'date'
-          = label_tag 'price'
-          = text_field_tag 'price'
-          = label_tag 'image'
-          = text_field_tag 'image'
-          = check_box_tag 'img_delete'
-          = hidden_field_tag 'restaurant_id'
-          = hidden_field_tag 'plat_id'
-          = link_to('Cancel', '#', :id => 'cancel_plat', :class => 'button radius tiny alert')
-          = submit_tag 'New Plat', :id => 'create_plat', :class => 'button radius tiny'
-          = submit_tag 'Edit Plat', :id => 'update_plat', :class => 'button radius success tiny'
-  %div.small-9.columns
-
+  %div= link_to('Create Plat', new_plat_path, :class => 'button radius tiny')
+  %div.columns.large-6.signin
+    -@plats.each do |plat|
+      %ul.no-bullet
+        %li
+          %span.description= plat.description
+          %span.price= number_to_currency plat.price
+        - if plat.avatar?
+          = image_tag plat.avatar.url(:medium)
+        %li.release= plat.release.strftime("%d-%b-%Y")
+        %li
+          = link_to('Edit', edit_plat_path(plat), :class => 'button radius tiny')
+          = link_to('Delete', plat, :method => :delete, :confirm => 'Really?', :class => 'button radius alert tiny')
+        %hr
+%div.columns.large-9

@@ -5,6 +5,10 @@ class PlatsController < ApplicationController
     @plats = @current_user.plats
   end
 
+  def new
+    @plat=Plat.new
+  end
+
   def edit
     @plat=Plat.find(params[:id])
   end
@@ -16,23 +20,20 @@ class PlatsController < ApplicationController
     end
     @plat.update_attributes(params[:plat])
     @plat.price = @plat.price || 0
-    render :json => @plat.as_json(:include => :restaurant)
-  end
-
-  def new
-    @plat=Plat.new
+    redirect_to(plats_path)
   end
 
   def create
     @plat=Plat.create(params[:plat])
+    # plat belongs to a user
     @current_user.plats << @plat
     @current_user.save
-    render :json => @plat.as_json(:include => :restaurant)
+    redirect_to(plats_path)
   end
 
   def destroy
     plat = Plat.find(params[:id])
     plat.destroy
-    render :json => (plat)
+    redirect_to(plats_path)
   end
 end

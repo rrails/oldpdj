@@ -28,7 +28,6 @@ class User < ActiveRecord::Base
   before_save :geocode ##before we do anything runs the geocode
 
   attr_accessible :name, :address, :phone, :email, :image, :city, :password, :password_confirmation, :icon, :cuisine_id,:avatar
-  # validates :name, :email, :address, :phone, :presence => true
   validates :name, :presence => true
 
   private

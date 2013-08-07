@@ -48,3 +48,10 @@ input[type="submit"].horiz {
 .sign_up{
   left: 274px;
 }
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+

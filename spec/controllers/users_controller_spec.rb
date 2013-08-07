@@ -20,10 +20,11 @@ describe UsersController do
 
   describe 'Edit Profile' do
     before do
-      @user = User.create(:name => 'Pear', :password => "a", :password_confirmation => "a")
+      @cuser = User.create(:name => 'Pear', :password => "a", :password_confirmation => "a")
+      @user = User.find(@cuser.id)
     end
 
-    let(:user)  {User.find user.id}
+    # let(:user)  {User.find user.id}
 
     it "should find the user" do
       @user.id.should_not be_nil
@@ -42,6 +43,7 @@ describe UsersController do
       expect(response.status).to eq(302)
       expect(response).to(redirect_to(restaurants_path))
     end
+
 
   end
 

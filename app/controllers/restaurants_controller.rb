@@ -12,12 +12,14 @@ class RestaurantsController < ApplicationController
 
   def update
     @restaurant = Restaurant.find(params[:id])
+    # delete the images
     if (params[:img_delete])
       @restaurant.avatar = nil
     end
     if @restaurant.update_attributes(params[:restaurant])
       redirect_to(restaurants_path)
     else
+      # if there are errors updating the attributes then redisplay the edit form
       render :edit
     end
   end
