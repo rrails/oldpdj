@@ -4,21 +4,14 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
 
     @restaurantcuisine = @restaurants.uniq{|x| x.cuisine_id}
-    @plats = Plat.where('release>? && release<?', Time.zone.local(
+    @plats = Plat.where('release > ?'  , Time.zone.local(
         Time.zone.now.year,
         Time.zone.now.month,
         Time.zone.now.day - 2,
         11,
         0,
-        0),
-
-      Time.zone.local(
-        Time.zone.now.year,
-        Time.zone.now.month,
-        Time.zone.now.day,
-        11,
-        0,
         0))
+    # binding.pry
   end
 
   def edit
