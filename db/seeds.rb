@@ -14,18 +14,18 @@ chinese = Cuisine.create(:name => 'chinese')
 u1 = User.create(:name => 'Bob', :address => '610 Harris St Sydney', :phone => '0412222', :email => 'bob@gmail.com', :password => 'a', :city => 'Sydney',  :password_confirmation => 'a')
 
 
-r1 = Restaurant.create(:name => 'Lego House', :address => '700 Harris St Sydney', :phone => '0422222', :email => 'lego@gmail.com', :password => 'a', :city => 'Sydney', :password_confirmation => 'a', :icon => 'http://icons.iconarchive.com/icons/visualpharm/icons8-metro-style/32/Catering-Restaurant-icon.png', :cuisine_id => thai.id)
+r1 = Restaurant.create(:name => 'Lego House', :address => '700 Harris St Sydney', :phone => '0422222', :email => 'lego@gmail.com', :password => 'a', :city => 'Sydney', :password_confirmation => 'a', :icon => 'http://icons.iconarchive.com/icons/custom-icon-design/all-country-flag/32/Thailand-Flag-icon.png', :cuisine_id => thai.id)
 
 r2 = Restaurant.create(:name => 'The RockPool', :address => '66 Hunter St
-Sydney NSW', :phone => '(02) 8078 1900', :email => 'rockpool@gmail.com', :password => 'b', :city => 'Sydney', :password_confirmation => 'b', :icon => 'http://icons.iconarchive.com/icons/chrisbanks2/cold-fusion-hd/32/Restaurant-Story-icon.png' , :cuisine_id => french.id)
+Sydney NSW', :phone => '(02) 8078 1900', :email => 'rockpool@gmail.com', :password => 'b', :city => 'Sydney', :password_confirmation => 'b', :icon => 'http://icons.iconarchive.com/icons/custom-icon-design/all-country-flag/32/France-Flag-icon.png' , :cuisine_id => french.id)
+
+r3 = Restaurant.create(:name => 'Thai hut', :address => '29 Commonwealth St Sydney', :phone => '0422232', :email => 'thai@gmail.com', :password => 'a', :city => 'Sydney', :password_confirmation => 'a', :icon => 'http://icons.iconarchive.com/icons/custom-icon-design/all-country-flag/32/Thailand-Flag-icon.png', :cuisine_id => thai.id)
 
 
-r3 = Restaurant.create(:name => 'Thai hut', :address => '800 Harris St Sydney', :phone => '0422232', :email => 'thai@gmail.com', :password => 'a', :city => 'Sydney', :password_confirmation => 'a', :icon => 'http://icons.iconarchive.com/icons/3xhumed/mega-games-pack-35/32/Restaurant-Empire-2-1-icon.png', :cuisine_id => thai.id)
-
-
-p1 = Plat.create(:description => '2 Piri Piri Burgers with fries', :price => '20', :release => '2013-08-04', :email => 'rockpool@gmail.com', :ready => true )
-
-p2 = Plat.create(:description => 'All you can eat Sushi', :price => '25', :release => '2013-08-03', :email => 'rockpool@gmail.com', :ready => true )
+p1 = Plat.create(:description => '2 Piri Piri Burgers with fries', :price => '20', :release => '2013-08-06', :email => 'rockpool@gmail.com', :ready => true, :image => 'http://www.healthyfood.co.nz/sites/default/files/styles/recipe_320x295/public/recipeimages/5723.jpg')
+p2 = Plat.create(:description => 'All you can eat Sushi', :price => '25', :release => '2013-08-06', :email => 'rockpool@gmail.com', :ready => true , :image => 'http://thetased.files.wordpress.com/2010/09/sushi2.jpg')
+p3 = Plat.create(:description => 'Pork Buns', :price => '10', :release => '2013-08-05', :email => 'hut@gmail.com', :ready => true, :image => 'http://www.foodpeoplewant.com/wp-content/uploads/2009/11/Barbecued-Pork-Buns-1024x768.jpg' )
 
 r1.plats << p1
 r2.plats << p2
+r3.plats << p3

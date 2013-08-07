@@ -23,3 +23,10 @@ class Restaurant < User
   has_many :plats
   belongs_to :cuisine
 end
+
+def Restaurant.with_cuisine
+  Restaurant.where('cuisine_id IS NOT null')
+end
+
+
+# delegate :cuisine_id, :to => :restaurant, prefix => true, :allow_nil => true

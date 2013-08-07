@@ -3,15 +3,9 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
 
-    @restaurantcuisine = @restaurants.uniq{|x| x.cuisine_id}
-    @plats = Plat.where('release > ?'  , Time.zone.local(
-        Time.zone.now.year,
-        Time.zone.now.month,
-        Time.zone.now.day - 2,
-        11,
-        0,
-        0))
-    # binding.pry
+    @plats = Plat.where('release > ? AND release < ?' , 1.day.ago.change(:hour => 11), Time.now.change(:hour => 11))
+    @platscuisine = @plats.uniq{|x| x.restaurant_id}
+
   end
 
   def edit
@@ -22,6 +16,21 @@ class RestaurantsController < ApplicationController
     restaurant = Restaurant.find(params[:id])
     restaurant.update_attributes(params[:restaurant])
     redirect_to(restaurants_path)
+  end
+
+  def search
+    result = Geocoder.search(params[:location]).first
+    @lat = result.latitude
+    @long = result.longitude
+
+    respond_to do |format|
+      format.json{
+        render :json => {
+          :latitude => @lat,
+          :longitude => @long,
+        }
+      }
+    end
   end
 
   def create
