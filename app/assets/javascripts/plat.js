@@ -15,7 +15,6 @@ var toggle_form = function(){
   }
 
 var display_plat = function (plat) {
-console.log(plat);
     var $ul = $('<ul/>').addClass('no-bullet');
     var $li0 = $('<li/>').attr('id', 'plat_' + plat.id);
     var $li1 = $('<li/>').addClass('description').text(plat.description);
@@ -29,9 +28,6 @@ console.log(plat);
     if (plat.release != null) {
       $li2.text(moment(plat.release).format('LL'));
     }
-    // if (plat.price != null) {
-    //   $li3.text(plat.price);
-    // }
     $ul.append([$li1, $li2, $li3, $li4,$li5,$li6,$li7,$li8]);
     $li0.append($ul);
     $('#plats').append($li0);

@@ -10,7 +10,8 @@
           %li.no-bullet.description= plat.description
           %li.price= plat.price
           %li.image= plat.image
-          %li.release= plat.release.strftime('%d-%b-%y')
+          - if plat.release?
+            %li.release= plat.release.strftime('%d-%b-%y')
           %li.restaurant_id.invisible= plat.restaurant_id
           %li.plat_id.invisible= plat.id
           %li
