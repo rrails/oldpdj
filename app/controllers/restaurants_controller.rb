@@ -2,11 +2,8 @@ class RestaurantsController < ApplicationController
   # before_filter :ensure_logged_in #calls from application controller code to ensure you redirect home when not logged in (instead of an error)
   def index
     @restaurants = Restaurant.all
-
     @plats = Plat.where('release > ? AND release < ?' , 2.day.ago.change(:hour => 11), Time.now.change(:hour => 11))
     @platscuisine = @plats.map{ |x| x.restaurant.cuisine.name }.uniq
-    #binding.pry
-
   end
 
   def edit
@@ -14,9 +11,15 @@ class RestaurantsController < ApplicationController
   end
 
   def update
-    restaurant = Restaurant.find(params[:id])
-    restaurant.update_attributes(params[:restaurant])
-    redirect_to(plats_path)
+    @restaurant = Restaurant.find(params[:id])
+    if (params[:img_delete])
+      @restaurant.avatar = nil
+    end
+    if @restaurant.update_attributes(params[:restaurant])
+      redirect_to(restaurants_path)
+    else
+      render :edit
+    end
   end
 
   def search
@@ -31,15 +34,6 @@ class RestaurantsController < ApplicationController
           :longitude => @long,
         }
       }
-
-    @restaurant = Restaurant.find(params[:id])
-    if (params[:img_delete])
-      @restaurant.avatar = nil
-    end
-    if @restaurant.update_attributes(params[:restaurant])
-      redirect_to(restaurants_path)
-    else
-      render :edit
     end
   end
 

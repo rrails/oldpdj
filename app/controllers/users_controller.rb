@@ -16,7 +16,6 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params[:user])
     @current_user = @user
-    binding.pry
     session[:user_id] = @user.id
     respond_to do |format|
       format.html {redirect_to(edit_user_path(@user))}
