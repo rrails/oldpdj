@@ -1,13 +1,10 @@
 class SessionController < ApplicationController
 
-  def new
-  end
-
   def create
     user = User.where(:name => params[:name]).first
     if user.present? && user.authenticate(params[:password])
       session[:user_id] = user.id
-      if (user.type == 'Restaurant')
+      if (user.is_a?(Restaurant))
         redirect_to(plats_path)
       else
         redirect_to(restaurants_path)

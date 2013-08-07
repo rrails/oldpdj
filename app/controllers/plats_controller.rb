@@ -11,7 +11,11 @@ class PlatsController < ApplicationController
 
   def update
     @plat=Plat.find(params[:id])
+    if (params[:img_delete])
+      @plat.avatar = nil
+    end
     @plat.update_attributes(params[:plat])
+    @plat.price = @plat.price || 0
     render :json => @plat.as_json(:include => :restaurant)
   end
 

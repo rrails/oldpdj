@@ -31,8 +31,6 @@ class User < ActiveRecord::Base
   # validates :name, :email, :address, :phone, :presence => true
   validates :name, :presence => true
 
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
-
   private
   def geocode
     result = Geocoder.search(self.address).first

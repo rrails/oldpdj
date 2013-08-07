@@ -31,6 +31,15 @@ class RestaurantsController < ApplicationController
           :longitude => @long,
         }
       }
+
+    @restaurant = Restaurant.find(params[:id])
+    if (params[:img_delete])
+      @restaurant.avatar = nil
+    end
+    if @restaurant.update_attributes(params[:restaurant])
+      redirect_to(restaurants_path)
+    else
+      render :edit
     end
   end
 
@@ -42,10 +51,9 @@ class RestaurantsController < ApplicationController
     respond_to do |format|
       format.html {redirect_to(edit_restaurant_path(@restaurant))}
       format.json {render :json => {url: (edit_restaurant_path(@restaurant))}}
-      # format.html {redirect_to(edit_user_path(@restaurant))}
-      # format.json {render :json => {url: (edit_restaurant_path(@restaurant))}}
     end
   end
+
   def destroy
     restaurant = Restaurant.find(params[:id])
     restaurant.destroy
