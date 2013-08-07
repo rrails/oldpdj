@@ -4,6 +4,11 @@ $(document).ready(function() {
     window.location = response.url;
   }
 
+  var process_signin = function () {
+    console.log('signin')
+    return true;
+  }
+
   var process_signup = function () {
     var name = $('#user_name').val();
     var password = $('#user_password').val();
@@ -11,7 +16,6 @@ $(document).ready(function() {
     var user_id = $('#user_id').val();
     var token = $('input[name="authenticity_token"]').val();
     var url =  '/users';
-    debugger;
     if($("#is_restaurant").prop('checked') == true){
       url = '/restaurants';
     }
@@ -32,5 +36,6 @@ $(document).ready(function() {
   }
 
   $('.sign_up').click(process_signup);
+  $('.sign_in').click(process_signin);
 
 });

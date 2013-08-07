@@ -2,7 +2,7 @@ Pdj::Application.routes.draw do
   root :to => 'home#index'
   resources :restaurants, :only => [:update, :create, :index, :edit]
   resources :users
-  resources :plats, :only => [:edit, :new,:create]
+  resources :plats, :only => [:edit, :new,:create,:update, :index, :destroy]
 
   post '/search/' => 'restaurants#search'
 

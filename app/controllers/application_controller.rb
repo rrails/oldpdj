@@ -2,10 +2,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :authenticate
 
-
-  # def ensure_logged_in
-  #   redirect_to(root_path) if @auth.nil?
-  # end
+  def ensure_logged_in
+    redirect_to(root_path) if @current_user.nil?
+  end
 
   private
   def authenticate

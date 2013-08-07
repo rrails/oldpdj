@@ -1,10 +1,18 @@
 class PlatsController < ApplicationController
+  before_filter :ensure_logged_in
+
   def index
-    @plats = Plat.all
+    @plats = @current_user.plats
   end
 
   def edit
-    @plat=Plat.find(params[:id]).last
+    @plat=Plat.find(params[:id])
+  end
+
+  def update
+    @plat=Plat.find(params[:id])
+    @plat.update_attributes(params[:plat])
+    render :json => @plat.as_json(:include => :restaurant)
   end
 
   def new
@@ -13,8 +21,14 @@ class PlatsController < ApplicationController
 
   def create
     @plat=Plat.create(params[:plat])
-    #need to associate plat with resautran
     @current_user.plats << @plat
-    redirect_to(root_path)
+    @current_user.save
+    render :json => @plat.as_json(:include => :restaurant)
+  end
+
+  def destroy
+    plat = Plat.find(params[:id])
+    plat.destroy
+    render :json => (plat)
   end
 end

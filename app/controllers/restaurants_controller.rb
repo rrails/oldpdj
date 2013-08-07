@@ -39,10 +39,15 @@ class RestaurantsController < ApplicationController
     session[:user_id] = @current_user.id
 
     respond_to do |format|
-      format.html {redirect_to(edit_user_path(@restaurant))}
-      format.json {render :json => {url: (edit_restaurant_path(@restaurant))}}
-
-      # format.json {render :json => (edit_user_path(@restaurant))}
+      format.html {redirect_to(plats_path)}
+      format.json {render :json => {url: (plats_path)}}
+      # format.html {redirect_to(edit_user_path(@restaurant))}
+      # format.json {render :json => {url: (edit_restaurant_path(@restaurant))}}
     end
+  end
+  def destroy
+    restaurant = Restaurant.find(params[:id])
+    restaurant.destroy
+    redirect_to(restaurants_path)
   end
 end
