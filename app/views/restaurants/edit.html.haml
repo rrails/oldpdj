@@ -22,8 +22,6 @@
           = image_tag @restaurant.avatar.url(:medium)
           %span delete image
           = check_box_tag 'img_delete'
-        = f.label :icon
-        = f.text_field :icon
         = f.label :cuisine
         = f.select :cuisine_id, Cuisine.all.collect {|e| [e.name,e.id]}
         = f.submit "Update Restaurant", :class => 'button radius'
