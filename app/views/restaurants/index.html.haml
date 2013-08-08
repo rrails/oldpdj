@@ -1,6 +1,6 @@
 %div#h1
   %h1
-    Les Plat Du Jours Aujourd'hui
+    Les Plats Du Jours Aujourd'hui
 
 %div#search
   = text_field_tag :address, nil,  :placeholder => 'SEARCH ', :id =>"search_field"
@@ -31,6 +31,6 @@
             %div#resto= plat.restaurant.name
             / %div#cuisine= plat.restaurant.cuisine.name
             %div#des= plat.description
-            %div#des= number_to_currency plat.price
-      / -@plats.each do |plat|
-      /   %div#plat= plat.description
+            %div#price= number_to_currency plat.price
+    / -@plats.each do |plat|
+    /   %div#plat= plat.description
