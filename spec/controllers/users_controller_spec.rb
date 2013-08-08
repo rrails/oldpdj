@@ -4,7 +4,6 @@ describe UsersController do
   describe 'Sign Up' do
     before do
       post :create, { :user => {:name  => "Joe", :password => "a", :password_confirmation => "a"}}
-      # @user = User.create(:name  => "Joe", :password => "a", :password_confirmation => "a")
     end
 
     it "should create a new user" do
@@ -15,6 +14,28 @@ describe UsersController do
     it "should redirect to the edit user" do
       expect(response.status).to eq(302)
       expect(response).to(redirect_to(edit_user_path(assigns(:user))))
+    end
+  end
+
+  describe 'Get all' do
+    before do
+      get :index
+    end
+
+    it 'should respond with a status 200' do
+      expect(response).to be_success
+      expect(response).to render_template("index")
+    end
+  end
+
+  describe 'Get Edit' do
+    before do
+      get :edit
+    end
+
+    it 'should respond with a status 200' do
+      expect(response).to eq(302)
+      expect(response).to render_template("edit")
     end
   end
 
@@ -43,8 +64,6 @@ describe UsersController do
       expect(response.status).to eq(302)
       expect(response).to(redirect_to(restaurants_path))
     end
-
-
   end
 
   describe 'User logoff' do
@@ -53,15 +72,5 @@ describe UsersController do
     end
     pending
   end
-
-  # describe 'User authentication fails' do
-  #   before do
-  #     @user = User.create(:name => 'Pear', :password => "a")
-  #   end
-  #   # why does it create user with no password confirmation?
-  #   it "should not create the user" do
-  #     @user.id.should be_nil
-  #   end
-  # end
 
 end

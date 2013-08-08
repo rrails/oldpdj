@@ -5,8 +5,6 @@
 #  id                  :integer          not null, primary key
 #  description         :string(255)
 #  price               :integer
-#  email               :string(255)
-#  ready               :boolean
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  restaurant_id       :integer
@@ -23,5 +21,6 @@ class Plat < ActiveRecord::Base
   belongs_to :restaurant
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates :release, :presence => true
+  validates :restaurant_id, :presence => true
 
 end

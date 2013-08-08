@@ -40,6 +40,7 @@ class RestaurantsController < ApplicationController
   end
 
   def create
+    binding.pry
     @restaurant = Restaurant.create(params[:user])
     @current_user = @restaurant
     session[:user_id] = @current_user.id

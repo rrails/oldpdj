@@ -11,7 +11,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(params[:user])
-    binding.pry
     @current_user = @user
     session[:user_id] = @user.id
     respond_to do |format|
