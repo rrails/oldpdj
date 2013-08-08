@@ -31,5 +31,6 @@
             %div#resto= plat.restaurant.name
             / %div#cuisine= plat.restaurant.cuisine.name
             %div#des= plat.description
+            %div#des= number_to_currency plat.price
       / -@plats.each do |plat|
       /   %div#plat= plat.description

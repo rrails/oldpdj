@@ -7,6 +7,6 @@
     = f.label :image
     = f.text_field :image
     = f.label :release
-    = f.date_select :release, :default => Date.today, :type => 'date'
+    = f.datetime_select :release, :default => Date.today, :type => 'date', :discard_minute => true
     = f.submit 'Platter', :class => 'button radius'
 %div.columns.large-9

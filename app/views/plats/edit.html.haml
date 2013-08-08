@@ -11,7 +11,7 @@
       %span delete image
       = check_box_tag 'img_delete'
     = plat.label :release
-    = plat.date_select :release, :type => 'date'
+    = plat.datetime_select :release, :type => 'date', :discard_minute => true
     = plat.submit "Update Plats", :class => 'button radius tiny'
     = link_to('Cancel', plats_path, :class => 'button radius tiny')
 
