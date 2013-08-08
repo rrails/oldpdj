@@ -18,3 +18,5 @@
 /config/database.yml
 #ignore coverage
 coverage
+public/system/plats/avatars
+spec/factories

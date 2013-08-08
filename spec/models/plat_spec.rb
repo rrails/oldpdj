@@ -51,6 +51,20 @@ describe Plat do
     plat = Plat.create(:description => 'soup', :price => '10.00',:restaurant_id => @restaurant.id)
     plat.id.should be_nil
   end
+
+  it "created with image" do
+    plat = Plat.create(:description => 'soup', :release => '2013-08-08',:price => '10.00',:restaurant_id => @restaurant.id,:avatar => File.new(Rails.root + 'spec/factories/rails.png'))
+    plat = Plat.find(plat.id)
+    plat.avatar.should_not be_nil
+  end
+    it "deleted with image" do
+    plat = Plat.create(:description => 'soup', :release => '2013-08-08',:price => '10.00',:restaurant_id => @restaurant.id,:avatar => File.new(Rails.root + 'spec/factories/rails.png'))
+    plat.reload
+    plat.avatar = nil
+    plat.save
+    plat.reload
+    plat.avatar?.should be_false
+  end
 end
 
 

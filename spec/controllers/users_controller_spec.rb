@@ -17,24 +17,14 @@ describe UsersController do
     end
   end
 
-  describe 'Get all' do
-    before do
-      get :index
-    end
-
-    it 'should respond with a status 200' do
-      expect(response).to be_success
-      expect(response).to render_template("index")
-    end
-  end
-
   describe 'Get Edit' do
     before do
-      get :edit
+      @user = User.create(:name => 'Pear', :password => "a", :password_confirmation => "a")
+      get :edit, {:id => @user.id}
     end
 
     it 'should respond with a status 200' do
-      expect(response).to eq(302)
+      expect(response.status).to eq(200)
       expect(response).to render_template("edit")
     end
   end
@@ -66,11 +56,11 @@ describe UsersController do
     end
   end
 
-  describe 'User logoff' do
-    before do
-      @user = User.create(:name => 'Pear', :password => "a", :password_confirmation => "a")
-    end
-    pending
-  end
+  # describe 'User logoff' do
+  #   before do
+  #     @user = User.create(:name => 'Pear', :password => "a", :password_confirmation => "a")
+  #   end
+  #   pending
+  # end
 
 end

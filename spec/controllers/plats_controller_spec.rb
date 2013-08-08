@@ -45,10 +45,8 @@ describe PlatsController do
 
       it "should redirect to the plats page" do
         expect(response.status).to eq(302)
-        # expect(response).to render_template("plats")
         expect(response).to(redirect_to(plats_path))
       end
-
     end
 
     describe 'a plat without a price' do
@@ -64,30 +62,50 @@ describe PlatsController do
       end
 
       it "should render the plats template" do
-        expect(response).to render_template("plats")
+        expect(response).to(redirect_to(plats_path))
+      end
+    end
+  end
+
+  describe 'Edit' do
+     before do
+        @restaurant = Restaurant.create(:name => 'Pear', :password => "a", :password_confirmation => "a")
+        request.session[:user_id] = @restaurant.id
+        plat = Plat.create(:description  => "Pad Thai", :price => "20.00", :release => "2013-08-08",:restaurant_id => @restaurant.id)
+        get :edit,{ :id => plat.id}
+      end
+
+      it "should be displayed for edit successfully" do
+        expect(response.status).to eq(200)
+      end
+  end
+
+  describe 'Edit to update' do
+     before do
+        @restaurant = Restaurant.create(:name => 'Pear', :password => "a", :password_confirmation => "a")
+        request.session[:user_id] = @restaurant.id
+        plat = Plat.create(:description  => "Pad Thai", :price => "20.00", :release => "2013-08-08",:restaurant_id => @restaurant.id)
+        put :update,{ :id => plat.id, :plat => {:description  => "Pizza", :price => "17.00", :release => "2013-08-09" }}
+      end
+
+      it "should be updated successfully" do
+        expect(response.status).to eq(302)
+        expect(assigns(:plat).description).to eq("Pizza")
       end
     end
 
-  end
-  describe 'Edit to update' do
-     # before do
-     #    @restaurant = Restaurant.create(:name => 'Pear', :password => "a", :password_confirmation => "a")
-     #    request.session[:user_id] = @restaurant.id
-     #    post :create, { :plat => {:description  => "Pizza", :price => "17.00", :release => "2013-08-09" }
-     #    @restaurant.plats << (assigns(:plat))
-     #    @restaurant.save
-     #  end
-  end
-  describe 'describe' do
-         # before do
-     #    @restaurant = Restaurant.create(:name => 'Pear', :password => "a", :password_confirmation => "a")
-     #    request.session[:user_id] = @restaurant.id
-     #    post :create, { :plat => {:description  => "Pizza", :price => "17.00", :release => "2013-08-09" }
-     #    @restaurant.plats << (assigns(:plat))
-     #    @restaurant.save
-     #  end
-  end
+  describe 'delete' do
+    before do
+      @restaurant = Restaurant.create(:name => 'Pear', :password => "a", :password_confirmation => "a")
+      request.session[:user_id] = @restaurant.id
+      plat = Plat.create(:description  => "Pad Thai", :price => "20.00", :release => "2013-08-08",:restaurant_id => @restaurant.id)
+      delete :destroy,{ :id => plat.id}
+    end
 
+    it "should be deleted successfully" do
+      expect(response.status).to eq(302)
+    end
+  end
 end
 
 
