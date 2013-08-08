@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20130808010357) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "icon"
   end
 
   create_table "plats", :force => true do |t|
@@ -46,7 +47,6 @@ ActiveRecord::Schema.define(:version => 20130808010357) do
     t.string   "password_digest"
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
-    t.string   "icon"
     t.integer  "cuisine_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"

@@ -15,7 +15,6 @@
 #  password_digest     :string(255)
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
-#  icon                :string(255)
 #  cuisine_id          :integer
 #  avatar_file_name    :string(255)
 #  avatar_content_type :string(255)
@@ -28,7 +27,9 @@ class User < ActiveRecord::Base
   before_save :geocode ##before we do anything runs the geocode
 
   attr_accessible :name, :address, :phone, :email, :image, :city, :password, :password_confirmation, :icon, :cuisine_id,:avatar
+
   validates :name, :presence => true
+
 
   private
   def geocode
