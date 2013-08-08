@@ -14,6 +14,7 @@ gem 'shoulda-matchers'
 gem 'simplecov'
 gem 'capybara'
 gem 'paperclip', '~> 3.0'
+gem 'client_side_validations'
 
 # Gems used only for assets and not required
 # in production environments by default.

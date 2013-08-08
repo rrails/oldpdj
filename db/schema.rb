@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130807052023) do
+ActiveRecord::Schema.define(:version => 20130808001643) do
 
   create_table "cuisines", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "icon"
   end
 
   create_table "plats", :force => true do |t|
@@ -48,7 +49,6 @@ ActiveRecord::Schema.define(:version => 20130807052023) do
     t.string   "password_digest"
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
-    t.string   "icon"
     t.integer  "cuisine_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"

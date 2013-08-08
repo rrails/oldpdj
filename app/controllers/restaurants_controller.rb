@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
   # before_filter :ensure_logged_in #calls from application controller code to ensure you redirect home when not logged in (instead of an error)
   def index
     @restaurants = Restaurant.all
-    @plats = Plat.where('release > ? AND release < ?' , 2.day.ago.change(:hour => 11), Time.now.change(:hour => 11))
+    @plats = Plat.where('release > ? AND release < ?' , 1.day.ago.change(:hour => 11), Time.now.change(:hour => 11))
     @platscuisine = @plats.map{ |x| x.restaurant.cuisine.name }.uniq
   end
 
