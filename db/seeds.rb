@@ -22,9 +22,9 @@ Sydney NSW', :phone => '(02) 8078 1900', :email => 'rockpool@gmail.com', :passwo
 r3 = Restaurant.create(:name => 'Thai hut', :address => '29 Commonwealth St Sydney', :phone => '0422232', :email => 'thai@gmail.com', :password => 'a', :city => 'Sydney', :password_confirmation => 'a', :cuisine_id => thai.id)
 
 
-p1 = Plat.create(:description => '2 Piri Piri Burgers with fries', :price => '20', :release => '2013-07-08 11:01', :image => 'http://www.healthyfood.co.nz/sites/default/files/styles/recipe_320x295/public/recipeimages/5723.jpg')
-p2 = Plat.create(:description => 'All you can eat Sushi', :price => '25', :release => '2013-07-08 11:01', :image => 'http://thetased.files.wordpress.com/2010/09/sushi2.jpg')
-p3 = Plat.create(:description => 'Pork Buns', :price => '10', :release => '2013-07-08 11:01', :image => 'http://www.foodpeoplewant.com/wp-content/uploads/2009/11/Barbecued-Pork-Buns-1024x768.jpg' )
+p1 = Plat.create(:description => '2 Piri Piri Burgers with fries', :price => '20', :release => '2013-09-08 10:59', :image => 'http://www.healthyfood.co.nz/sites/default/files/styles/recipe_320x295/public/recipeimages/5723.jpg')
+p2 = Plat.create(:description => 'All you can eat Sushi', :price => '25', :release => '2013-09-08 10:59', :image => 'http://thetased.files.wordpress.com/2010/09/sushi2.jpg')
+p3 = Plat.create(:description => 'Pork Buns', :price => '10', :release => '2013-09-08 10:59', :image => 'http://www.foodpeoplewant.com/wp-content/uploads/2009/11/Barbecued-Pork-Buns-1024x768.jpg' )
 
 r1.plats << p1
 r2.plats << p2
