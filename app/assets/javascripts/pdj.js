@@ -30,7 +30,7 @@ var display_map = function (lat, long, zoom) {
     position: latlng,
     map: map,
     title: title,
-    cuisine: name
+    cuisine: cuisine
   };
   if (icon) {
     options.icon = icon;
