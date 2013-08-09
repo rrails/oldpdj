@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
   validates :name, :presence => true
 
 
-  private
+  #private
   def geocode
     result = Geocoder.search(self.address).first
 

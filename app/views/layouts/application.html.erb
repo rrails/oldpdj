@@ -18,9 +18,13 @@
     <%= stylesheet_link_tag    "application" %>
     <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
     <%= javascript_include_tag "vendor/custom.modernizr" %>
+    <%= javascript_include_tag "application" %>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE'] %>&sensor=true" type="text/javascript"></script>
+
+
     <%= csrf_meta_tags %>
 
+    <%#= javascript_include_tag "application" %>
   </head>
 
   <body>
@@ -28,7 +32,7 @@
     <%= render :partial => 'layouts/nav' %>
     <%= render :partial => 'layouts/body' %>
     <%= render :partial => 'layouts/footer' %>
-    <%= javascript_include_tag "application" %>
+    <%= javascript_include_tag "other" %>
 
   </body>
 </html>

@@ -25,6 +25,7 @@
           %li
             %script
               = "$(document).ready(function () {"
+              = "alert(#{plat.restaurant.latitude});"
               = "add_marker(#{plat.restaurant.latitude}, #{plat.restaurant.longitude}, '#{plat.restaurant.name}', '#{plat.restaurant.cuisine.icon}', '#{plat.restaurant.cuisine.name}');"
               = "});"
             %div#icon= image_tag(plat.restaurant.cuisine.icon)

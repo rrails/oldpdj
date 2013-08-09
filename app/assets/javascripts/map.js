@@ -2,6 +2,7 @@ $(document).ready(function () {
 
 var show_cuisine = function() {
 
+
     var   $cuisine = $(this).attr('id'); //defines the cuisine variable based on the id of the checkbox that is ticked
     var show = $(this).is(':checked'); //define a show method that is true when checked
 
